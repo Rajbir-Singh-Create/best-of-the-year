@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search movies</title>
+</head>
+<body>
+    <h1>Filter movies</h1>
+    <div th:if="${filteredMovie != null}">
+        <p th:text="'movie searched: ' + ${filteredMovie.title}"></p>
+    </div>
+    <div th:if = "${filteredMovie == null}">
+        <p th:text="'error: film non esiste'"></p>
+    </div>
+</body>
+</html>
