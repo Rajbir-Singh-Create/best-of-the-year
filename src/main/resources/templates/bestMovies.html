@@ -7,13 +7,14 @@
 </head>
 <body>
     <h1>Best Movies</h1>
-    <div>
+    <!-- <div>
         <p th:text="${moviesListString}" />
-    </div>
+    </div> -->
     <div>
         <ul>
-            <li th:each="movies : ${moviesList}">
-                <span th:text="${movies.id} + ' - ' + ${movies.title}"></span>
+            <li th:each="movie : ${moviesList}">
+                <!-- <span th:text="${movies.id} + ' - ' + ${movies.title}"></span> -->
+                <a th:href="@{movies/{id}(id=${movie.id})}" th:text="${movie.title}"></a>
             </li>
         </ul>
     </div>

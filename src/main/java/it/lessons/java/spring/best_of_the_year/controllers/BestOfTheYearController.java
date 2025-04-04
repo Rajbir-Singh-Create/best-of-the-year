@@ -27,25 +27,23 @@ public class BestOfTheYearController {
     }
 
     // Step 2
-    // Metodo che deve ritornare una lista di oggetti
-    // di tipo Movie
+    // Metodo che deve ritornare una lista di oggetti di tipo Movie
     private List<Movie> getBestMovies(){
         // Istanzio degli oggetti e li salvo in variabili
-        Movie m1 = new Movie(1, "Fury");
-        Movie m2 = new Movie(2, "Pirates of the Caribbean");
-        Movie m3 = new Movie(3, "Man of steel");
+        Movie m1 = new Movie(1, "Fury", "2014", "David Ayer", "Norman Productions, LLC");
+        Movie m2 = new Movie(2, "Pirates of the Caribbean", "2003", "Gore Verbinski", "studio 1");
+        Movie m3 = new Movie(3, "Man of steel", "2012", "Zack Snyder", "DC");
 
-        // Creo una lista di movies e aggiungo le istanze create
-        // in precedenza
+        // Creo una lista di movies e aggiungo le istanze create in precedenza
         List<Movie> movies = new ArrayList<>();
         movies.add(m1);
         movies.add(m2);
         movies.add(m3);
 
-        // Ritorno la lista
         return movies;
     }
 
+    // Metodo che deve ritornare una lista di oggetti di tipo Song
     private List<Song> getBestSongs(){
         Song s1 = new Song(11, "Phantom Fear", "Architects", "All Our Gods Have Abbandoned Us", "2016");
         Song s2 = new Song(22, "Modern Misery", "Architects", "Holy Hell", "2018");
@@ -64,6 +62,7 @@ public class BestOfTheYearController {
         // Creo una lista di tipo Movie
         // inserisco al suo interno gli elementi istanziati nel metodo getBestMovies()
         List<Movie> movies = getBestMovies();
+
         // Inserisco la lista nel Model come valore da passare alla view
         // tramite l'attributo moviesList
         model.addAttribute("moviesList", movies);
@@ -116,15 +115,8 @@ public class BestOfTheYearController {
                 break;
             }
         }
-        
         return "searchSongs";
     }
-    
-    // non mi serve
-    // @GetMapping("/songs/detail")
-    // public String songDetail(Model model){
 
-    //     return "phantomFear";
-    // }
 
 }

@@ -8,10 +8,18 @@
 <body>
     <h1>Filter movies</h1>
     <div th:if="${filteredMovie != null}">
-        <p th:text="'movie searched: ' + ${filteredMovie.title}"></p>
+        <ul>
+            <li th:text="'Titolo: ' + ${filteredMovie.title}"></li>
+            <li th:text="'Anno: ' + ${filteredMovie.anno}"></li>
+            <li th:text="'Director: ' + ${filteredMovie.director}"></li>
+            <li th:text="'Studio: ' + ${filteredMovie.studio}"></li>
+        </ul>
     </div>
     <div th:if = "${filteredMovie == null}">
         <p th:text="'film non trovato'"></p>
+    </div>
+    <div>
+        <a th:href="@{/movies}">Torna indietro</a>
     </div>
 </body>
 </html>
