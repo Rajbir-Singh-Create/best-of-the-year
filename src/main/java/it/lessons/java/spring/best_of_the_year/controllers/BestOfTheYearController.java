@@ -47,9 +47,9 @@ public class BestOfTheYearController {
     }
 
     private List<Song> getBestSongs(){
-        Song s1 = new Song(11, "Phantom Fear");
-        Song s2 = new Song(22, "Nihilist");
-        Song s3 = new Song(33, "Memento Mori");
+        Song s1 = new Song(11, "Phantom Fear", "Architects", "All Our Gods Have Abbandoned Us", "2016");
+        Song s2 = new Song(22, "Modern Misery", "Architects", "Holy Hell", "2018");
+        Song s3 = new Song(33, "Fade Away", "Low Roar", "Maybe Tomorrow", "2021");
         
         List<Song> songs = new ArrayList<>();
         songs.add(s1);
@@ -120,5 +120,11 @@ public class BestOfTheYearController {
         return "searchSongs";
     }
     
+    // non mi serve
+    // @GetMapping("/songs/detail")
+    // public String songDetail(Model model){
+
+    //     return "phantomFear";
+    // }
 
 }

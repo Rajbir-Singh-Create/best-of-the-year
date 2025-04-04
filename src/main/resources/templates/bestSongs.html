@@ -13,9 +13,13 @@
     <div>
         <ul>
             <li th:each = "song : ${songsList}">
-                <span th:text="${song.title}"></span>
+                <!-- <span th:text="${song.title}"></span> -->
+                <a th:href="@{songs/{id}(id=${song.id})}" th:text="${song.title}"></a>
             </li>
         </ul>
+    </div>
+    <div>
+        <a th:href="@{/?name=Rajbir}">Return to Home page</a>
     </div>
 </body>
 </html>

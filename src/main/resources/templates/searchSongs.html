@@ -3,15 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search songs</title>
+    <title>Song Details</title>
 </head>
 <body>
-    <h1>Filter songs</h1>
+    <h1>Song Details</h1>
     <div th:if="${filteredSong != null}">
-        <p th:text="${filteredSong.title}" />
+        <ul>
+            <li th:text="'Titolo: ' + ${filteredSong.title}"></li>
+            <li th:text="'Autore: ' + ${filteredSong.autore}"></li>
+            <li th:text="'Album: ' + ${filteredSong.album}"></li>
+            <li th:text="'Anno: ' + ${filteredSong.anno}"></li>
+        </ul>
     </div>
     <div th:if="${filteredSong == null}">
         <p th:text="'canzone non trovata'" />
+    </div>
+    <div>
+        <a th:href="@{/songs}">Torna indietro</a>
     </div>
 </body>
 </html>
