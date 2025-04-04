@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import it.lessons.java.spring.best_of_the_year.models.Movie;
+import it.lessons.java.spring.best_of_the_year.models.Song;
 
 
 @Controller
@@ -45,9 +46,18 @@ public class BestOfTheYearController {
         return movies;
     }
 
-    // private void getBestSongs(){
+    private List<Song> getBestSongs(){
+        Song s1 = new Song(11, "Phantom Fear");
+        Song s2 = new Song(22, "Nihilist");
+        Song s3 = new Song(33, "Memento Mori");
         
-    // }
+        List<Song> songs = new ArrayList<>();
+        songs.add(s1);
+        songs.add(s2);
+        songs.add(s3);
+
+        return songs;
+    }
 
     @GetMapping("movies")
     public String movies(Model model) {
@@ -69,6 +79,22 @@ public class BestOfTheYearController {
         return "bestMovies";
     }
 
+    @GetMapping("songs")
+    public String songs(Model model){
+        List<Song> songs = getBestSongs();
+        model.addAttribute("songsList", songs);
+
+        // Stringa di canzoni
+        // String songsList = "";
+        // for (Song song : songs) {
+        //     songsList += song.getTitle() + ", ";
+        // }
+        // songsList = songsList.substring(0, songsList.length()-2);
+        // model.addAttribute("songsListString", songsList);        
+
+        return "bestSongs";
+    }
+
     @GetMapping("movies/{id}")
     public String filterMovieById(@PathVariable("id") int movieId, Model model) {
         List<Movie> movies = getBestMovies();
@@ -78,9 +104,21 @@ public class BestOfTheYearController {
                 break;
             }
         }
-
         return "searchMovie";
     }
     
+    @GetMapping("songs/{id}")
+    public String filterSongById(@PathVariable("id") int songId, Model model) {
+        List<Song> songs = getBestSongs();
+        for (Song s : songs) {
+            if(s.getId() == songId){
+                model.addAttribute("filteredSong", s);
+                break;
+            }
+        }
+        
+        return "searchSongs";
+    }
     
+
 }

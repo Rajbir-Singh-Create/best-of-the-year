@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lxmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search songs</title>
+</head>
+<body>
+    <h1>Filter songs</h1>
+    <div th:if="${filteredSong != null}">
+        <p th:text="${filteredSong.title}" />
+    </div>
+    <div th:if="${filteredSong == null}">
+        <p th:text="'canzone non trovata'" />
+    </div>
+</body>
+</html>

@@ -11,7 +11,7 @@
         <p th:text="'movie searched: ' + ${filteredMovie.title}"></p>
     </div>
     <div th:if = "${filteredMovie == null}">
-        <p th:text="'error: film non esiste'"></p>
+        <p th:text="'film non trovato'"></p>
     </div>
 </body>
 </html>
