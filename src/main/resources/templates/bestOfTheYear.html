@@ -1,21 +1,36 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.2/css/bootstrap.min.css}" />
     <title>Home | Best of the year</title>
 </head>
+
 <body>
+    <div th:insert="fragments :: header">
+    </div>
     <main>
-        <div>
-            <h1 th:text="'Best of the year by ' + ${name}"/h1>
-        </div>
-        <div>
-            <a th:href="@{/movies}">Best movies</a>
-        </div>
-        <div>
-            <a th:href="@{/songs}">Best songs</a>
+        <div class="container my-4">
+            <div class="d-flex justify-content-center my-4">
+                <h1 th:text="'Best of the year by ' + ${name}" /h1>
+            </div>
+            <div class="d-flex justify-content-center my-4">
+                <div class="card" style="width: 18rem;">
+                    <img th:src="@{/img/IMG_7857.jpg}" alt="Mr. Gibbon">
+                    <div class="card-body">
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, quia
+                            facilis assumenda, fugiat eum, magni sint distinctio aperiam deleniti deserunt earum ex
+                            delectus at corrupti labore! Culpa nemo similique suscipit.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
+    <!-- Bootstrap Bundle with Popper -->
+    <script th:src="@{/webjars/bootstrap/5.3.2/js/bootstrap.bundle.min.js}"></script>
 </body>
+
 </html>
